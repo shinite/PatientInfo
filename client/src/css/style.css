@@ -1,0 +1,100 @@
+
+label{
+text-align: left;
+padding-top: 20px;
+color: black;
+}
+
+#searchButton
+{
+	margin-top: 20px;
+	width: 200px;
+	height: 40px;
+	font-size: 16px;
+	color: black;
+	align-items: center;
+
+}
+
+
+
+#searchName{
+	margin-top: 20px;
+	width: 60%;
+	height: 20%;
+	align-items: center;
+	margin-left: 40px;
+	display: inline;
+}
+
+#nameButton{
+	margin-left: 5%;
+	display: inline;
+	margin-top: 20px;
+	width: 100px;
+	height: 30px;
+	font-size: 16px;
+	color: black;
+	align-items: center;
+}
+
+#SearchPatient{
+	display: inline;
+	text-align: left;
+	margin-top: 20px;
+}
+
+#searchBox
+{
+
+  height : 30px;
+	width: 400px;
+
+}
+
+#Form{
+	margin-top: 20px;
+}
+
+
+#Submit{
+	margin-left: 50%;
+	display: inline;
+	text-align: left;
+	margin-bottom: 20px;
+}
+
+
+heading{
+	margin-top: 10%;
+	margin-left: 40%;
+	text-align: center;
+	font-weight: bold;
+	font-size: 25px;
+}
+
+
+table{
+	margin-left: 30%;
+	margin-top: 20px;
+	background: #F0F8FF;
+	width: auto;
+}
+
+td{
+	padding-top: 10px;
+	padding-bottom: 10px;
+	
+}
+#Success{
+	text-align: center;
+	margin-top: 10%;
+	margin-bottom: 10%;	
+}
+
+#head{
+	padding-top: 10px;
+	padding-bottom: 10px;
+	font-weight: bold;
+
+}
