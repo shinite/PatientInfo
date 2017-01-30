@@ -20,6 +20,13 @@ var Main=React.createClass({
       //console.log("insendtoadmin")
   },
 
+ sendtoBack:function(data)
+  {
+      this.setState({admin: null})
+      //console.log("insendtoadmin")
+  },
+
+
   render: function() {
 
     if(this.state.admin==null)
@@ -43,7 +50,7 @@ var Main=React.createClass({
   {
       return (
         <div>
-        <ParentMainChild/>
+        <ParentMainChild Back={this.sendtoBack}/>
         </div>
       )
 

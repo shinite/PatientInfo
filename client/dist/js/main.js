@@ -20792,34 +20792,111 @@ var FormFill=React.createClass({displayName: "FormFill",
       this.state.data.details=e.target.value;
     },  
 
- 	sendtoSubmit: function(){
+ 	sendtoSubmit: function(e){
 
  		var pattern = /^([0-9]{2})\/([0-9]{2})\/([0-9]{4})$/;
  		var mobilechek=/^\d{10}$/;
+  		console.log(this.state.data.gender)
+  		var k=true;
 
- 		console.log(this.state.data.gender)
  		if(this.state.data.firstName==null || this.state.data.firstName=="")
-      	alert("Please enter your First Name")	
+ 		{
+
+      	 document.getElementById("FirstName").innerHTML="*Please enter your First Name";
+      	 document.getElementById("FirstName").style.display = "block";
+      	 k=false;
+      	}
+      	else
+      	{
+      		document.getElementById("FirstName").style.display = "none";
+      	}
+
         if(this.state.data.lastName==null || this.state.data.lastName=="")
-      	alert("Please enter your Last Name")
-        if(this.state.data.lastName==null || this.state.data.lastName=="")
-       	alert("Please enter your Age")
-       	if(isNaN(this.state.data.age) || this.state.data.age<1  || this.state.data.age >100)	
-      	alert("Age should be a number between 1 to 100")
+        {
+      	document.getElementById("LastName").innerHTML="*Please enter your Last Name";
+      	 document.getElementById("LastName").style.display = "block";
+      	k=false;
+      	}
+      	else
+      	{
+      		document.getElementById("LastName").style.display = "none";
+      	}
+
+        if(this.state.data.age==null || this.state.data.age=="")
+        {
+        document.getElementById("age").innerHTML="*Please enter your Age";
+      	document.getElementById("age").style.display = "block";
+      	k=false;
+        }
+        else
+      	{
+      		document.getElementById("age").style.display = "none";
+      	}
+
+       	if(isNaN(this.state.data.age) || this.state.data.age<1  || this.state.data.age >100)
+       	{
+       	document.getElementById("age").innerHTML="*Age should be a number between 1 to 100";
+      	document.getElementById("age").style.display = "block";
+      	k=false;
+       	}	
+       	else
+      	{
+      		document.getElementById("age").style.display = "none";
+      	}    
 
     	if (this.state.data.dob == null || this.state.data.dob == "" || !pattern.test(this.state.data.dob))
     	{
-    		alert("Please input Date in DD/MM/YYYY format")
+    	document.getElementById("dob").innerHTML="*Please input Date in DD/MM/YYYY format";
+      	document.getElementById("dob").style.display = "block";
+      	k=false;
     	}
+    	else
+      	{
+      		document.getElementById("dob").style.display = "none";
+      	}  
     	if(this.state.data.gender!="Male" && this.state.data.gender!="Female" && this.state.data.gender!="Others")
-      	alert("Please enter your Gender")	
+    	{
+    	document.getElementById("gender").innerHTML="*Please enter Gender";
+      	document.getElementById("gender").style.display = "block";
+      	k=false;
+    	}
+    	else
+      	{
+      		document.getElementById("gender").style.display = "none";
+      	}  	
       	if(this.state.data.details==null || this.state.data.details=="")
-      	alert("Please enter your details")	
+      	{
+      	document.getElementById("details").innerHTML="*Please  enter details regarding illness";
+      	document.getElementById("details").style.display = "block";
+      	k=false;
+    	}
+    	else
+      	{
+      		document.getElementById("details").style.display = "none";
+      	}  
      	if(this.state.data.mobile==null || this.state.data.mobile=="")
-      	alert("Please enter your Mobile Number")	
+      	{
+      	document.getElementById("mobile").innerHTML="*Please enter your mobile Number";
+      	document.getElementById("mobile").style.display = "block";
+      	k=false;
+    	}
+    	else
+      	{
+      		document.getElementById("mobile").style.display = "none";
+      	}  
       	if(!mobilechek.test(this.state.data.mobile))
-      		alert("Mobile Number should be of 10 digits")
-	    else
+      	{
+      	document.getElementById("mobile").innerHTML="*Mobile Number should have 10 digits";
+      	document.getElementById("mobile").style.display = "block";
+      	k=false;
+    	}
+    	else
+      	{
+      		document.getElementById("mobile").style.display = "none";
+      	}  
+	   
+
+	   if(k==true)
 	    {
 	      this.props.submitData(this.state.data,"done")
 	  	}		
@@ -20835,28 +20912,33 @@ var FormFill=React.createClass({displayName: "FormFill",
 	        React.createElement("div", {className: "form-group"}, 
 	        React.createElement("label", {className: "col-lg-4  control-label"}, "First Name"), 
 	        React.createElement("div", {className: "col-lg-8"}, 
-	        React.createElement("input", {type: "text", className: "form-control", placeholder: "Enter First Name.", id: "searchBox", onChange: this.changeFirstName})
+	        React.createElement("input", {type: "text", className: "form-control", placeholder: "Enter First Name.", id: "searchBox", onChange: this.changeFirstName}), 
+	        React.createElement("div", {id: "FirstName"})
 	        )
 	        ), 
+	       
 
 	        React.createElement("div", {className: "form-group"}, 
 	        React.createElement("label", {className: "col-lg-4 control-label"}, "Last Name"), 
 	        React.createElement("div", {className: "col-lg-8"}, 
-	        React.createElement("input", {type: "text", className: "form-control", placeholder: "Enter Last Name.", id: "searchBox", onChange: this.changeLastName})
+	        React.createElement("input", {type: "text", className: "form-control", placeholder: "Enter Last Name.", id: "searchBox", onChange: this.changeLastName}), 
+	        React.createElement("div", {id: "LastName"})
 	        )
 	        ), 
 
 	        React.createElement("div", {className: "form-group"}, 
 	        React.createElement("label", {className: "col-lg-4 control-label"}, "Age"), 
 	        React.createElement("div", {className: "col-lg-8"}, 
-	        React.createElement("input", {type: "number", className: "form-control", placeholder: "Enter Age.", id: "searchBox", onChange: this.changeAge})
+	        React.createElement("input", {type: "number", className: "form-control", placeholder: "Enter Age.", id: "searchBox", onChange: this.changeAge}), 
+	       	React.createElement("div", {id: "age"})
 	        )
 	        ), 
 
 	        React.createElement("div", {className: "form-group"}, 
 	        React.createElement("label", {className: "col-lg-4 control-label"}, "Date Of Birth"), 
 	        React.createElement("div", {className: "col-lg-8"}, 
-	        React.createElement("input", {type: "date", className: "form-control", placeholder: "Enter Date of Birth as DD/MM/YYYY", id: "searchBox", onChange: this.changeDOB})
+	        React.createElement("input", {type: "date", className: "form-control", placeholder: "Enter Date of Birth as DD/MM/YYYY", id: "searchBox", onChange: this.changeDOB}), 
+	        React.createElement("div", {id: "dob"})
 	        )
 	        ), 
 
@@ -20867,20 +20949,22 @@ var FormFill=React.createClass({displayName: "FormFill",
 	    			React.createElement("option", {value: "Male"}, "Male"), 
 				    React.createElement("option", {value: "Female"}, "Female"), 
 				    React.createElement("option", {value: "Others"}, "Others")
-				)
+				), 
+				React.createElement("div", {id: "gender"})
 	        ), 
 
 	        React.createElement("div", {className: "form-group"}, 
 	        React.createElement("label", {className: "col-lg-4 control-label"}, "Mobile Number"), 
 	        React.createElement("div", {className: "col-lg-8"}, 
-	        React.createElement("input", {type: "text", className: "form-control", placeholder: "Enter the Mobile Number.", id: "searchBox", onChange: this.changeNumber})
+	        React.createElement("input", {type: "text", className: "form-control", placeholder: "Enter the Mobile Number.", id: "searchBox", onChange: this.changeNumber}), 
+	        React.createElement("div", {id: "mobile"})
 	        )
 	        ), 
 
 	        React.createElement("div", {className: "form-group"}, 
 	        React.createElement("label", {className: "col-lg-4 control-label"}, "Information Area"), 
-	        React.createElement("textarea", {rows: "5", cols: "52", onChange: this.changeDetails, placeholder: "Enter details regarding the illness"}
-	       	)
+	        React.createElement("textarea", {rows: "5", cols: "52", onChange: this.changeDetails, placeholder: "Enter details regarding the illness"}), 
+	        React.createElement("div", {id: "details"})
 	        )
 
 
@@ -20949,7 +21033,9 @@ var MainChild2=React.createClass({displayName: "MainChild2",
       React.createElement("td", {id: "head"}, " Details"), 
       React.createElement("td", null, " ", this.props.allData.details, " ")
       )
-      )
+      ), 
+
+      React.createElement("p", null, "----------------------------------------------------------------------------------------------------")
   
       )
 
@@ -21001,7 +21087,7 @@ var MainChild=React.createClass({displayName: "MainChild",
 	{	
 		return(
 			React.createElement("div", null, 
-	        React.createElement("input", {type: "text", className: "form-control", placeholder: "Enter first name you wish to search.", id: "searchName", onChange: this.changeFirst}), 
+	        React.createElement("input", {type: "text", className: "form-control", placeholder: "Enter first name of patient you wish to Search.", id: "searchName", onChange: this.changeFirst}), 
 	        React.createElement("input", {type: "button", className: "btn btn-primary btn-medium", id: "nameButton", value: "Submit", onClick: this.sendtoParent})
 			)
 
@@ -21058,7 +21144,9 @@ var ParentMainChild=React.createClass({displayName: "ParentMainChild",
 	      })
 	},
 
-	
+	sendtoBack:function(){
+		this.props.Back(null);
+	},
 
 	searchFirst:function(first)
 	{	
@@ -21086,6 +21174,10 @@ var ParentMainChild=React.createClass({displayName: "ParentMainChild",
 	{	
 		return (
 	        React.createElement("div", null, 
+
+	        React.createElement("div", null, 
+          	React.createElement("input", {type: "button", className: "btn btn-primary btn-medium", id: "SearchPatient", value: "Back", onClick: this.sendtoBack})
+        	), 
 	        React.createElement(MainChild, {searchFirst: this.searchFirst}), 
 	        React.createElement(MainChild2, {allData: this.state.mydata, first: this.state.first})
 	        )
@@ -21139,6 +21231,10 @@ var Submit=React.createClass({displayName: "Submit",
 
 	},	
 
+	sendtoBack:function(){
+		this.setState({success:null})
+	},
+
 	render:function(){
 
 		if(this.state.success==null)
@@ -21155,8 +21251,12 @@ var Submit=React.createClass({displayName: "Submit",
 	{
 		return (
 		React.createElement("div", {id: "Success"}, 
-			"Your information was successfully collected."	
-		)
+			"Your information was successfully collected.", 	
+
+		React.createElement("div", null, 
+          React.createElement("input", {type: "button", className: "btn btn-primary btn-medium", id: "SearchPatient", value: "Back", onClick: this.sendtoBack})
+        )
+        )
 		)
 	}
 	}
@@ -21187,6 +21287,13 @@ var Main=React.createClass({displayName: "Main",
       //console.log("insendtoadmin")
   },
 
+ sendtoBack:function(data)
+  {
+      this.setState({admin: null})
+      //console.log("insendtoadmin")
+  },
+
+
   render: function() {
 
     if(this.state.admin==null)
@@ -21210,7 +21317,7 @@ var Main=React.createClass({displayName: "Main",
   {
       return (
         React.createElement("div", null, 
-        React.createElement(ParentMainChild, null)
+        React.createElement(ParentMainChild, {Back: this.sendtoBack})
         )
       )
 

@@ -14,7 +14,9 @@ var ParentMainChild=React.createClass({
 	      })
 	},
 
-	
+	sendtoBack:function(){
+		this.props.Back(null);
+	},
 
 	searchFirst:function(first)
 	{	
@@ -42,6 +44,10 @@ var ParentMainChild=React.createClass({
 	{	
 		return (
 	        <div>
+
+	        <div>
+          	<input type="button" className="btn btn-primary btn-medium"   id="SearchPatient" value="Back" onClick={this.sendtoBack}/>
+        	</div>
 	        <MainChild searchFirst={this.searchFirst}/>
 	        <MainChild2 allData={this.state.mydata} first={this.state.first}/>
 	        </div>

@@ -48,6 +48,8 @@ var MainChild2=React.createClass({
       <td> {this.props.allData.details} </td>
       </tr>
       </table>
+
+      <p>----------------------------------------------------------------------------------------------------</p>
   
       </div>
 

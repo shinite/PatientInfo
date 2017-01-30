@@ -38,6 +38,10 @@ var Submit=React.createClass({
 
 	},	
 
+	sendtoBack:function(){
+		this.setState({success:null})
+	},
+
 	render:function(){
 
 		if(this.state.success==null)
@@ -55,7 +59,11 @@ var Submit=React.createClass({
 		return (
 		<div id="Success">
 			Your information was successfully collected.	
-		</div>
+
+		<div>
+          <input type="button" className="btn btn-primary btn-medium"   id="SearchPatient" value="Back" onClick={this.sendtoBack}/>
+        </div>
+        </div>
 		)
 	}
 	}
