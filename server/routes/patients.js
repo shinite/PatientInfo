@@ -2,6 +2,7 @@ var express=require('express')
 var mongoose=require('mongoose')
 var patientObj=require('../model/patients');
 var app=express();
+var Validator= require('validator')
 
 
 var loggerTest=function(req,res,next){  
@@ -17,15 +18,39 @@ var loggerTest=function(req,res,next){
   });
 }
 
+/*function validateInput(data)
+{
+ var erros={};
+
+ console.log(data.firstName)
+
+  if(Validator.isNull(data.firstName)){
+    errors.firstName="field required";
+  }
+
+}*/
+
 
 
 app.post('/add',function(req,res){
-  console.log("Inside Add");
+  
+ /* console.log(req.body);
+  const errors=validateInput(req.body);
+  const isValid=validateInput(req.body);
+  if(!isValid){
+    res.status(400).json(errors);
+  }
+  else
+  {
+ */
+
+
   var patients =new patientObj(req.body);
   patients.save(function(err)
   {
     if(err)
       {
+
       res.send(err);
     }
     else
@@ -35,12 +60,13 @@ app.post('/add',function(req,res){
      //next();
     }
   })
+  //}
 });
 
 
 app.get('/display/:first',function(req,res,next){
-  //console.log("inside get");
-  //var movie=mongoose.model("MovieDetails")
+   console.log(req.body);
+  
    patientObj.find({firstName:req.params.first},function(err,data){
     if(err){
       res.send("error in get");

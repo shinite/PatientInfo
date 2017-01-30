@@ -39,8 +39,9 @@ var FormFill=React.createClass({
 
  		var pattern = /^([0-9]{2})\/([0-9]{2})\/([0-9]{4})$/;
  		var mobilechek=/^\d{10}$/;
+  		console.log(this.state.data.dob)
   		console.log(this.state.data.gender)
-  		var k=true;
+      var k=true;
 
  		if(this.state.data.firstName==null || this.state.data.firstName=="")
  		{
@@ -180,7 +181,11 @@ var FormFill=React.createClass({
 	        <div className="form-group" >
 	        <label className="col-lg-4 control-label" >Date Of Birth</label>
 	        <div className="col-lg-8">
+
+	        <input type="text" className="form-control" placeholder='Enter Date of Birth as DD/MM/YYYY' id='searchBox' onChange={this.changeDOB}/>
+
 	        <input type="date" className="form-control" placeholder='Enter Date of Birth as DD/MM/YYYY' id='searchBox' onChange={this.changeDOB}/>
+
 	        <div id="dob"/>
 	        </div>
 	        </div>
