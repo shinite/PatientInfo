@@ -40,6 +40,7 @@ var FormFill=React.createClass({
     },  
 
  	sendtoSubmit: function(e){
+    console.log(age);
 
  		var pattern = /^([0-9]{4})\/([0-1]{1}[0-9]{1})\/([0-9]{2})$/ ;
  		var mobilechek=/^\d{10}$/;
@@ -110,6 +111,7 @@ var FormFill=React.createClass({
     		document.getElementById("age").style.display = "none";
     	}    
 
+
     	if (this.state.data.dob == null || this.state.data.dob == "" || !pattern.test(this.state.data.dob))
     	{
     	document.getElementById("dob").innerHTML="*Please input Date in YYYY/MM/DD format";
@@ -118,7 +120,13 @@ var FormFill=React.createClass({
          document.getElementById("dob").className="alert alert-warning";
       	k=false;
     	}
-
+      else if(age<0)
+      {
+        document.getElementById("dob").innerHTML="*Future Date Cannot be Inserted.";
+        document.getElementById("dob").style.display = "block";
+        document.getElementById("dob").role="alert";
+        document.getElementById("dob").className="alert alert-warning";
+      }
         else if(age!=this.state.data.age)
         {
           console.log(age)

@@ -14,7 +14,7 @@ var Submit=React.createClass({
 	
 	onSubmit: function(data1,done)
 	{
-	console.log("inside submit")
+	console.log(data1)
 	this.setState({success:done})
 	
 	$.ajax({
