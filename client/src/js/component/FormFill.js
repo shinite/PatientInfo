@@ -241,7 +241,7 @@ var FormFill=React.createClass({
 	        <div className="form-group" >
 	        <label className="col-lg-4 control-label" >Date Of Birth</label>
 	        <div className="col-lg-8">
-	        <input type="text" className="form-control" placeholder='Enter Date of Birth as YYYY/MM/DD' id='searchBox' onChange={this.changeDOB}/>
+	        <input type="text" className="form-control" placeholder='YYYY/MM/DD ' id='searchBox' onChange={this.changeDOB}/>
 	        <div id="dob"/>
 	        </div>
 	        </div>

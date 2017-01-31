@@ -10,7 +10,7 @@ var MainChild2=React.createClass({
     {
     return (
       <div>
-      <table id="table">
+      <table id="table" >
       
       <tr>
       <td id="head"> First Name</td>

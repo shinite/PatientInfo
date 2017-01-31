@@ -27,8 +27,8 @@ app.post('/add',function(req,res){
     console.log("First Name cannot be empty.")
     k=false;
   }
-  if(data.lastName==null || data.lastName=="")
-  {
+  if(data.lastName==null ||  data.lastName==" ")
+      {
     console.log("Last Name cannot be empty.")
     k=false;
   }
@@ -42,7 +42,7 @@ app.post('/add',function(req,res){
     k=false;
     console.log("Mobile Number cannot be empty.")
   }
-  if(data.details==null || data.details=="")
+  if(data.details==null || data.details==" ")
   {
     k=false;
     console.log("Details cannot be empty.")
