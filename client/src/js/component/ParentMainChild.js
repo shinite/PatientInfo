@@ -20,14 +20,16 @@ var ParentMainChild=React.createClass({
 
 	searchFirst:function(first)
 	{	
+		console.log(first);
       $.ajax({
-      url: "http://localhost:8080/patients/display"+first,
+      url: "http://localhost:8080/patients/display/"+first,
       dataType: 'json',
       type:"GET",
       async: true,
       cache: false,
       success: function(data)
       {
+      	console.log("success in ajax")
         this.setState({mydata : data});
         console.log(data);
       }  .bind(this),

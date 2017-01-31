@@ -31,9 +31,14 @@ var MainChild=React.createClass({
 	render: function()
 	{	
 		return(
-			<div >
-	        <input type="text" className="form-control" placeholder='Enter first name of patient you wish to Search.' id='searchName' onChange={this.changeFirst}/>
-	        <input type="button" className="btn btn-primary btn-medium"   id='nameButton' value="Submit" onClick={this.sendtoParent}/>
+			<div id='searchName'>
+			 <div className="input-group">
+      		
+	        <input type="text" className="form-control" placeholder='Enter first name of patient you wish to Search.'  onChange={this.changeFirst}/>
+	        	<span className="input-group-btn">
+	        <input type="button" className="btn btn-primary btn-medium"   value="Submit" onClick={this.sendtoParent}/>
+			</span>
+			</div>
 			</div>
 
 			)

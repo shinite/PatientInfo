@@ -17,8 +17,22 @@ color: black;
 }
 
 
-#FirstName,#LastName,#age,#dob,#gender,#mobile,#details{
+#FirstName,#LastName,#age,#dob,#mobile{
 	color: red;
+	height: 25px;
+	font-size: 12px;
+	width: 55%;
+	padding-top: 3px;
+
+}
+
+#gender,#details{
+	color: red;
+	height: 25px;
+	font-size: 12px;
+	width: 35%;
+	padding-top: 3px;
+	margin-left: 34%;
 }
 
 
@@ -26,18 +40,10 @@ color: black;
 	margin-top: 20px;
 	width: 60%;
 	height: 20%;
-	margin-left: 40px;
-	display: inline;
-}
-
-#nameButton{
-	margin-left: 5%;
-	display: inline;
-	margin-top: 20px;
-	width: 100px;
-	height: 30px;
+	margin-left: 20%;
 	
 }
+
 
 #SearchPatient{
 	display: inline;

@@ -3,13 +3,21 @@ var schema=mongoose.Schema;
 
 var patients=new schema({
 	firstName: {type: String, required: true},
+	
 	lastName: {type: String, required: true},
-	age: {type: Number, required: true},
-	dob: {type: String, required: true},
-	gender:{type: String, required: true},
-	mobile: {type: Number, required: true},
+	
+	age: {type: Number,
+		  required: true},
+
+	dob: {type: String, 
+        required: true},
+
+	gender:{type: String, 
+			required: true},
+
+	mobile: {type: String,
+            required: true},
 	details:{type: String, required: true},
 })
-module.exports=mongoose.model('newpatients',patients);
 
-i cant type der/.. this is my model .. bagal mei routes is the patients.js api 
+module.exports=mongoose.model('newpatients',patients);
